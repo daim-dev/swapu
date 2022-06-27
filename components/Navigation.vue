@@ -34,8 +34,8 @@
 
       <Search class="flex-auto items-center hidden md:flex"></Search>
 
-      <div class="flex justify-between min-w-225px">
-        <!-- <UserMenu></UserMenu> -->
+      <div class="flex justify-end min-w-225px">
+        <UserMenu></UserMenu>
       </div>
     </div>
   </nav>
