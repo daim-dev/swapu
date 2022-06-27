@@ -7,10 +7,10 @@
       :content="description"
       itemprop="description"
     />
-    <div class="flex flex-auto flex-wrap">
+    <div class="flex flex-auto flex-wrap max-w-1024px mx-auto">
       <div class="w-full md:w-1/2 flex flex-col justify-center">
-        <h1 class="text-5xl font-brand font-bold">I'll Swap You</h1>
-        <p class="text-xl">Swap what you have for what you want</p>
+        <h1 class="text-5xl font-brand font-bold py-3">I'll Swap You</h1>
+        <p class="text-xl py-3">Swap what you have for what you want</p>
         <p>Swapping is the new online shopping</p>
       </div>
       <div class="w-full md:w-1/2">
