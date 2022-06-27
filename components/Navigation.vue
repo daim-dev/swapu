@@ -32,7 +32,9 @@
         </nuxt-link>
       </div>
 
-      <div class="flex justify-between">
+      <Search class="flex-auto items-center hidden md:flex"></Search>
+
+      <div class="flex justify-between min-w-225px">
         <!-- <UserMenu></UserMenu> -->
       </div>
     </div>
