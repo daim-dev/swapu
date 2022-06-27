@@ -1,15 +1,17 @@
 <template>
   <Html lang="en-AU" itemscope itemtype="https://schema.org/WebPage">
-    <div class="min-h-screen flex flex-col justify-start body">
-      <Navigation v-model:draw="draw" :items="items"></Navigation>
-      <div class="flex justify-start self-stretch h-full grow relative">
-        <div
-          id="sidenav"
-          class="self-stretch flex grow flex-col min-h-full absolute sm:relative"
-        >
+    <div class="flex flex-col justify-start body relative">
+      <div class="sticky top-0 z-1">
+        <Navigation v-model:draw="draw" :items="items" class="z-2"></Navigation>
+        <div class="absolute top-full bottom-0">
           <SideNav :items="items" :draw="draw"></SideNav>
         </div>
-        <div class="w-full flex-col grow self-stretch flex-wrap">
+      </div>
+      <div class="flex justify-start self-stretch h-full grow relative">
+        <div
+          class="flex w-full flex-col grow self-stretch flex-wrap transition-all duration-500 ml-0"
+          :class="{ 'sm:ml-60': draw }"
+        >
           <main
             itemprop="mainContentOfPage"
             itemtype="https://schema.org/WebPageElement"
@@ -25,7 +27,7 @@
 </template>
 
 <script setup>
-const { data: items } = await useAsyncData('content-navigation', () => {
+const { data: items } = await useAsyncData("content-navigation", () => {
   const items = [
     {
       icon: "i-carbon-home",
