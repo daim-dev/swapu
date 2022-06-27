@@ -17,14 +17,7 @@
           >
             <NuxtPage />
           </main>
-          <footer class="flex">
-            <p>
-              <span>Site by </span>
-              <a href="https://daim.dev" class="underline" target="_blank"
-                >Daim Digital</a
-              >
-            </p>
-          </footer>
+          <Footer></Footer>
         </div>
       </div>
     </div>
