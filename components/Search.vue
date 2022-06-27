@@ -12,7 +12,7 @@
           aria-describedby="button-addon2"
         />
         <button
-          class="btn relative inline-block -ml-1px px-6 py-2.5 text-black hover:text-white font-medium text-xs leading-tight uppercase hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+          class="btn relative border border-gray-300 inline-block -ml-1px px-6 py-2.5 text-black hover:text-white font-medium text-xs leading-tight uppercase hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
           type="button"
         >
           <span class="i-mdi-search h-24px w-24px my-auto"></span>
