@@ -33,6 +33,30 @@ const { data: items } = await useAsyncData('content-navigation', () => {
       url: "/",
       pos: "1/1",
     },
+    {
+      icon: "i-carbon-product",
+      name: "Products",
+      url: "/products",
+      pos: "1/2",
+    },
+    {
+      icon: "i-ic-outline-category",
+      name: "Categories",
+      url: "/categories",
+      pos: "1/3",
+    },
+    {
+      icon: "i-ic-outline-local-offer",
+      name: "Offers",
+      url: "/offers",
+      pos: "1/4",
+    },
+    {
+      icon: "i-carbon-add",
+      name: "Create",
+      url: "/create",
+      pos: "1/5",
+    },
   ];
   return items;
 });
