@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     webFonts: {
       fonts: {
         brand: [
-          { name: 'Montserrat' },
+          { name: 'Montserrat:400,700' },
           {
             name: 'sans-serif',
             provider: 'none',
