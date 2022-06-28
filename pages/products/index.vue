@@ -42,7 +42,7 @@ function transformFirestore(item) {
   }
   if (item?.values) {
     return item.values.map((item) => {
-      const value = item.mapValue ?? { fields: item }
+      const value = item.mapValue ?? { fields: item };
       return transformFirestore(value);
     });
   }
@@ -76,17 +76,28 @@ function renameKeys(content) {
       postImages: "image",
     },
   });
-  renamed.image = renamed.image?.[0]?.url
-  return renamed
+  renamed.image = renamed.image?.[0]?.url;
+  return renamed;
 }
 export default {
   async setup() {
     const url =
-      "https://firestore.googleapis.com/v1/projects/swapu-staging/databases/(default)/documents/All Posts";
+      "https://firestore.googleapis.com/v1/projects/swapu-staging/databases/(default)/documents:runQuery";
     const { data: items, error } = await useFetch(url, {
+      method: "POST",
+      body: {
+        structuredQuery: {
+          from: [{ collectionId: "All Posts" }],
+          orderBy: [
+            { field: { fieldPath: "created_on" }, direction: "DESCENDING" },
+          ],
+          limit: 24,
+        },
+      },
+      // server: false,
       transform(data) {
-        return data.documents.map((item) => {
-          return renameKeys(transformFirestore(item));
+        return data.map((item) => {
+          return renameKeys(transformFirestore(item.document));
         });
       },
     });
