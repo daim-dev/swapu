@@ -106,7 +106,7 @@ export default {
   data() {
     return {
       title: "SwapU - The Swapping Marketplace",
-      heading: "Products",
+      heading: "Listings",
       description:
         "Visit Australia's FREE online swap meet! Find cars, boats, motorbikes, furniture, electronics & more for swap across Australia.",
     };

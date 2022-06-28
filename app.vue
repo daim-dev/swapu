@@ -37,8 +37,8 @@ const { data: items } = await useAsyncData("content-navigation", () => {
     },
     {
       icon: "i-carbon-product",
-      name: "Products",
-      url: "/products",
+      name: "Listings",
+      url: "/listings",
       pos: "1/2",
     },
     {
