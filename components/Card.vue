@@ -1,5 +1,7 @@
 <template>
-  <div class="rounded-lg shadow-lg bg-white flex flex-col grow self-stretch min-w-240px max-w-360px">
+  <div
+    class="rounded-lg shadow-lg bg-white flex flex-col grow self-stretch min-w-240px max-w-360px"
+  >
     <img
       class="rounded-t-lg"
       :src="image"
@@ -8,12 +10,18 @@
       :height="imageHeight"
       :aspect-ratio="imageWidth / imageHeight"
       :style="`background-color: ${_imageBackgroundColor};`"
-      style="height: 216px;"
+      style="height: 216px"
     />
     <div class="p-6 flex grow flex-col self-stretch">
-      <div class="text-gray-900 text-xl font-medium mb-2">{{ name }}</div>
-      <p class="text-gray-700 text-base mb-4">
-        {{ description }}
+      <div class="text-gray-900 text-xl font-medium mb-2">
+        <template v-if="price">
+        ${{ price }} ·
+        </template>
+        {{ name }}
+      </div>
+      <p class="text-gray-700">
+        <span class="i-carbon-location my-auto inline-block"></span>
+        {{ location }}
       </p>
       <Link
         class="ml-2 flex justify-end self-end justify-self-end mt-auto"
@@ -21,7 +29,14 @@
         v-bind="link"
         :key="link"
       >
-        <span class="i-carbon-new-tab text-gray w-24px h-24px my-auto"></span>
+        <span
+          class="text-gray w-24px h-24px my-auto"
+          :class="
+            link.url.startsWith('http')
+              ? 'i-carbon-new-tab'
+              : 'i-carbon-arrow-right'
+          "
+        ></span>
       </Link>
     </div>
   </div>
@@ -41,7 +56,8 @@ export default {
     description: { type: String, default: undefined },
     list: { type: Array, default: undefined },
     links: { type: Array, default: undefined },
-    plans: { type: Array, default: undefined },
+    // plans: { type: Array, default: undefined },
+    price: { type: Number, default: undefined },
     startDate: { type: String, default: undefined },
     endDate: { type: String, default: undefined },
     imageHeight: { type: Number, default: 360 },
