@@ -4,9 +4,9 @@
     bg-nav
   >
     <div
-      class="container-fluid w-full flex flex-wrap items-center justify-between px-3 h-64px"
+      class="w-full flex flex-wrap items-center justify-between px-3 h-64px"
     >
-      <div class="container-fluid flex">
+      <div class="flex md:min-w-225px">
         <button
           class="navbar-toggler flex text-black border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
           type="button"
@@ -32,9 +32,9 @@
         </nuxt-link>
       </div>
 
-      <Search class="flex-auto items-center hidden md:flex"></Search>
+      <Search class="flex-auto items-center hidden md:flex self-center"></Search>
 
-      <div class="flex justify-end min-w-225px">
+      <div class="flex justify-end md:min-w-225px">
         <UserMenu></UserMenu>
       </div>
     </div>
