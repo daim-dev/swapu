@@ -1,13 +1,14 @@
 <template>
   <div class="rounded-lg shadow-lg bg-white flex flex-col grow self-stretch min-w-240px max-w-360px">
     <img
-      class="rounded-t-lg h-216px"
+      class="rounded-t-lg"
       :src="image"
       alt=""
       :width="imageWidth"
       :height="imageHeight"
       :aspect-ratio="imageWidth / imageHeight"
-      :style="`background-color: ${_imageBackgroundColor}`"
+      :style="`background-color: ${_imageBackgroundColor};`"
+      style="height: 216px;"
     />
     <div class="p-6 flex grow flex-col self-stretch">
       <div class="text-gray-900 text-xl font-medium mb-2">{{ name }}</div>
