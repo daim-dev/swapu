@@ -49,7 +49,7 @@ function transformFirestore(item) {
   return Object.fromEntries(
     Object.entries(child).map(([key, value]) => {
       if (!value) {
-        return undefined;
+        return [undefined, undefined];
       }
       const firstValue = Object.values(value)[0];
       if (
