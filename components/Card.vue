@@ -63,7 +63,7 @@ export default {
     imageHeight: { type: Number, default: 360 },
     imageWidth: { type: Number, default: 640 },
     imageQuality: { type: Number, default: 100 },
-    imageColor: { type: String, default: "#fff" },
+    imageColor: { type: String, default: "#f9f9f9" },
     imageBackgroundColor: { type: String, default: null },
     imageFit: {
       type: String,
