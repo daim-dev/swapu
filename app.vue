@@ -4,13 +4,17 @@
       <div class="sticky top-0 z-1">
         <Navigation v-model:draw="draw" :items="items" class="z-2"></Navigation>
         <div class="absolute top-full bottom-0">
-          <SideNav :items="items" :draw="draw"></SideNav>
+          <SideNav
+            :items="items"
+            :draw="draw"
+            :class="{ 'pointer-events-none': !draw }"
+            v-model:draw="draw"
+          ></SideNav>
         </div>
       </div>
       <div class="flex justify-start self-stretch h-full grow relative">
         <div
-          class="flex w-full flex-col grow self-stretch flex-wrap transition-all duration-500 ml-0"
-          :class="{ 'sm:ml-60': draw }"
+          class="flex w-full flex-col grow self-stretch flex-wrap transition-all duration-500"
         >
           <main
             itemprop="mainContentOfPage"

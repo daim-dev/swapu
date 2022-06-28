@@ -12,6 +12,7 @@
       <span :class="item.icon" class="text-gray w-32px h-32px my-auto"></span>
       <Link
         v-bind="item"
+        @click="$emit('update:draw', false)"
         class="relative hover:text-grey-500 btn text-black-500"
       ></Link>
     </div>
@@ -23,5 +24,6 @@ export default {
     draw: { type: Boolean, default: false },
     items: { type: Array, default: () => [] },
   },
+  emits: ["update:draw"],
 };
 </script>
