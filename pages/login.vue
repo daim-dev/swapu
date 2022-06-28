@@ -10,7 +10,7 @@
           alt="Phone image"
         />
       </div> -->
-      <div class="md:w-8/12 lg:w-5/12 lg:ml-20 w-auto">
+      <div class="md:w-8/12 lg:w-5/12 w-auto">
         <form @submit.prevent="handleLogin" class="w-auto">
           <div class="form-group">
             <label
