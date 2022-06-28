@@ -35,50 +35,8 @@
 
 <script>
 import normalizeData from "~/utils/normalize-data";
-function transformFirestore(item) {
-  const child = item?.fields ?? item?.values;
-  if (!child) {
-    return undefined;
-  }
-  if (item?.values) {
-    return item.values.map((item) => {
-      const value = item.mapValue ?? { fields: item };
-      return transformFirestore(value);
-    });
-  }
-  return Object.fromEntries(
-    Object.entries(child).map(([key, value]) => {
-      if (!value) {
-        return [undefined, undefined];
-      }
-      const firstValue = Object.values(value)[0];
-      if (
-        typeof firstValue === "object" &&
-        !Array.isArray(firstValue) &&
-        firstValue !== null
-      ) {
-        return [key, transformFirestore(firstValue)];
-      }
-      if (Array.isArray(firstValue)) {
-        return [key, firstValue.map(transformFirestore)];
-      }
-      return [key, firstValue];
-    }),
-  );
-}
-function renameKeys(content) {
-  const renamed = normalizeData({
-    obj: content,
-    keysMap: {
-      // postDesc: "description",
-      postTitle: "name",
-      postId: "id",
-      postImages: "image",
-    },
-  });
-  renamed.image = renamed.image?.[0]?.url;
-  return renamed;
-}
+import transformFirestore from '~/utils/transform-firestore';
+import renameKeys from '~/utils/remap-listing-keys';
 export default {
   async setup() {
     const url =
