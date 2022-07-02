@@ -3,7 +3,8 @@
     class="rounded-lg shadow-lg bg-white flex flex-col grow self-stretch min-w-240px max-w-360px"
   >
     <img
-      class="rounded-t-lg"
+      v-if="image && image.startsWith('https://')"
+      class="rounded-t-lg block object-cover object-center w-full h-full"
       :src="image"
       alt=""
       :width="imageWidth"
@@ -12,11 +13,19 @@
       :style="`background-color: ${_imageBackgroundColor};`"
       style="height: 216px"
     />
+    <Picture
+      v-else
+      :src="image"
+      :alt="name"
+      class="rounded-t-lg block object-cover object-center w-full h-full"
+      width="348"
+      height="216"
+      sizes="sm:100vw md:33vw lg:416px"
+      itemprop="contentUrl"
+    ></Picture>
     <div class="p-6 flex grow flex-col self-stretch">
       <div class="text-gray-900 text-xl font-medium mb-2">
-        <template v-if="price">
-        ${{ price }} ·
-        </template>
+        <template v-if="price"> ${{ price }} · </template>
         {{ name }}
       </div>
       <p class="text-gray-700">
