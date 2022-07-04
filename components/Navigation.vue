@@ -23,7 +23,7 @@
           title="Home Page"
         >
           <img
-            src="/logo.png"
+            src="/logo.svg"
             class="navbar-brand"
             height="24"
             width="100"
