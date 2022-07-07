@@ -13,6 +13,10 @@ export default function renameKeys(content) {
     },
   });
   renamed.image = renamed.image?.[0]?.url;
+  const firebaseStoreageBaseUrl = 'https://firebasestorage.googleapis.com/v0/b/geosynergy-swapu.appspot.com'
+  if (renamed.image) {
+    renamed.image = renamed.image.replace(firebaseStoreageBaseUrl, '');
+  }
   renamed.links = [
     {
       url: `/listings/${renamed.id}`,
