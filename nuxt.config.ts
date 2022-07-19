@@ -1,8 +1,39 @@
 import { defineNuxtConfig } from "nuxt";
 import invertColor from "./utils/invert-color";
 
+const APP_NAME = 'Swapu'
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  meta: {
+    title: APP_NAME,
+    meta: [
+      { name: 'description', content: APP_NAME },
+      { name: 'apple-mobile-web-app-status-bar', content: 'black' },
+      { name: 'theme-color', content: 'black' },
+      {
+        property: 'og:image',
+        content: '/social.png',
+      },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '600' },
+      { property: 'og:image:alt', content: APP_NAME },
+    ],
+    link: [
+      { rel: 'manifest', href: '/manifest.json' },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+      {
+        rel: 'apple-touch-icon',
+        type: 'image/png',
+        href: '/apple-touch-icon.png',
+      },
+    ],
+  },
   buildModules: ["@unocss/nuxt"],
   css: ["@unocss/reset/tailwind.css"],
   unocss: {
@@ -12,12 +43,12 @@ export default defineNuxtConfig({
     webFonts: {
       fonts: {
         brand: [
-          { name: "Montserrat:400,700" },
           {
             name: "sans-serif",
             provider: "none",
           },
         ],
+        sans: 'Montserrat:400,700',
       },
     },
     icons: {
@@ -25,7 +56,7 @@ export default defineNuxtConfig({
     },
     theme: {
       colors: {
-        primary: "#ff3230",
+        primary: "#698AFF",
         nav: "#ffffff",
       },
     },
