@@ -58,6 +58,9 @@ export default defineNuxtConfig({
       colors: {
         primary: "#698AFF",
         nav: "#ffffff",
+        footer: '#3F3F3F',
+        hr: '#D9D9D9',
+
       },
     },
     shortcuts: [
