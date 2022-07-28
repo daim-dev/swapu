@@ -13,31 +13,36 @@
       style="height: 216px"
     />
     <div class="p-6 flex grow flex-col self-stretch">
-      <div class="text-gray-900 text-xl font-medium mb-2">
-        <template v-if="price">
-        ${{ price }} ·
-        </template>
+      <div
+        class="text-gray-900 text-xl font-medium whitespace-nowrap text-ellipsis overflow-hidden"
+      >
         {{ name }}
       </div>
-      <p class="text-gray-700">
-        <span class="i-carbon-location my-auto inline-block"></span>
+      <p class="text-[#8C959F] mt-3">
+        <span
+          class="i-gridicons-location my-auto inline-block text-[#787878]"
+        ></span>
         {{ location }}
       </p>
-      <Link
-        class="ml-2 flex justify-end self-end justify-self-end mt-auto"
-        v-for="link in links"
-        v-bind="link"
-        :key="link"
-      >
-        <span
-          class="text-gray w-24px h-24px my-auto"
-          :class="
-            link.url.startsWith('http')
-              ? 'i-carbon-new-tab'
-              : 'i-carbon-arrow-right'
-          "
-        ></span>
-      </Link>
+      <div class="flex justify-between mt-6">
+        <span v-if="price" class="font-bold"> ${{ price }} </span>
+        <Link
+          class="ml-2 flex justify-end self-end justify-self-end mt-auto text-primary"
+          v-for="link in links"
+          v-bind="link"
+          :key="link"
+        >
+          <span class="pr-2 font-medium">Details</span>
+          <span
+            class="w-18px h-18px my-auto"
+            :class="
+              link.url.startsWith('http')
+                ? 'i-carbon-new-tab'
+                : 'i-fa6-solid-arrow-right'
+            "
+          ></span>
+        </Link>
+      </div>
     </div>
   </div>
 </template>
