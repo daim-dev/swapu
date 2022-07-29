@@ -7,7 +7,8 @@
       :content="description"
       itemprop="description"
     />
-    <div
+    <h1 class="sr-only">I'll Swap you</h1>
+    <section
       class="relative overflow-hidden bg-no-repeat bg-cover"
       :style="`
     background-position: 50%;
@@ -65,25 +66,54 @@
           </div>
         </slot>
       </div>
-    </div>
-    <div class="flex flex-auto flex-wrap max-w-1024px mx-auto">
-      <div class="w-full md:w-1/2 flex flex-col justify-center">
-        <h1 class="text-5xl font-brand font-bold py-3">I'll Swap You</h1>
-        <p class="text-xl py-3">Swap what you have for what you want</p>
-        <p>Swapping is the new online shopping</p>
+    </section>
+    <section class="py-15">
+      <div class="flex justify-between">
+        <h2 class="text-4xl font-bold">Recent swap offers</h2>
+        <button class="btn btn-primary rounded-lg">Explore All</button>
       </div>
-      <div class="w-full md:w-1/2">
-        <img
-          src="https://swapu.com.au/LandingPageOne/HeaderSectionGuest/Graphic.svg"
-          class="mx-auto"
-          alt=""
-        />
+      <div>Card 1</div>
+      <div>Card 2</div>
+    </section>
+    <section class="py-30">
+      <h2 class="text-4xl font-bold">Categories</h2>
+    </section>
+    <section class="py-30">
+      <div class="flex justify-between">
+        <h2 class="text-4xl font-bold">Suggested for you</h2>
+        <button class="btn btn-primary rounded-lg">Explore All</button>
       </div>
-    </div>
+      <hr class="my-11 border-color-hr"/>
+      <Grid :items="items"></Grid>
+    </section>
+    <section class="p-8 md:p-16 mt-15">
+      <div>
+        <h2 class="text-2xl font-bold">Buy our 
+          <img src="/img/swap-ready.png" alt="swap ready" class="inline-block" />
+          package for $10 and everyone that sees your item will know that you are ready to swap and have everything you need to make the swap smooth and trouble-free</h2>
+        <div class="text-gray">
+          Our package includes a "Swap Ready" badge on your listing and all the information that you need to have your car/bike/boat etc ready to swap.
+        </div>
+        <button class="btn btn-primary rounded-lg">Buy</button>
+      </div>
+      <div>
+        Images
+      </div>
+    </section>
+    <section class="mt-15">
+      <div class="flex justify-between">
+        <h2 class="text-4xl font-bold">Something of interest</h2>
+        <button class="btn btn-primary rounded-lg">Explore All</button>
+      </div>
+      <hr class="my-11 border-color-hr"/>
+      <Grid :items="items"></Grid>
+    </section>
   </div>
 </template>
 
 <script>
+import transformFirestore from '~/utils/transform-firestore';
+import renameKeys from '~/utils/remap-listing-keys';
 export default {
   data() {
     return {
@@ -91,6 +121,66 @@ export default {
       description:
         "Visit Australia's FREE online swap meet! Find cars, boats, motorbikes, furniture, electronics & more for swap across Australia.",
     };
+  },
+  async setup() {
+    const route = useRoute();
+
+    if (route.query.oobCode) {
+      const apiKey = "AIzaSyCrQW-B4oJXv6VWqiIixrjjOmEattzk9Cg";
+      const endpoint = "signInWithEmailLink";
+      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${apiKey}`;
+      useFetch(url, {
+        method: "POST",
+        lazy: true,
+        server: false,
+        body: {
+          oobCode: route.query.oobCode,
+          email: route.query.email,
+        },
+      });
+      console.log("data", data);
+      // return data;
+    }
+    // Email sign-in flow.
+    // if (location.href.match(/[&?]oobCode=/)) {
+    //   const oobCode = location.href.match(/[?&]oobCode=([^&]+)/)[1];
+    //   const email =
+    //     (options && options.email) ||
+    //     location.href.match(/[?&]email=([^&]+)/)[1];
+    //   const expiresAt = Date.now() + 3600 * 1000;
+    //   const { idToken, refreshToken } = await this.api("signInWithEmailLink", {
+    //     oobCode,
+    //     email,
+    //   });
+
+    //   // Now, get the user profile.
+    //   await this.fetchProfile({ idToken, refreshToken, expiresAt });
+
+    //   // Remove sensitive data from the URLSearch params in the location bar.
+    //   history.replaceState(null, null, location.origin + location.pathname);
+    // }
+
+    const url =
+      "https://firestore.googleapis.com/v1/projects/swapu-staging/databases/(default)/documents:runQuery";
+    const { data: items, error } = await useFetch(url, {
+      method: "POST",
+      body: {
+        structuredQuery: {
+          from: [{ collectionId: "All Posts" }],
+          orderBy: [
+            { field: { fieldPath: "created_on" }, direction: "DESCENDING" },
+          ],
+          limit: 4,
+        },
+      },
+      // server: false,
+      transform(data) {
+        return data.map((item) => {
+          return renameKeys(transformFirestore(item.document));
+        });
+      },
+    });
+    return { items, error };
   },
 };
 </script>
