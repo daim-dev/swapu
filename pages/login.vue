@@ -11,7 +11,7 @@
         />
       </div> -->
       <div class="md:w-8/12 lg:w-5/12 w-auto">
-        <form @submit.prevent="handleLogin" class="w-auto">
+        <form @submit.prevent="login" class="w-auto">
           <div class="form-group">
             <label
               for="emailInput"
@@ -44,30 +44,34 @@
 import { ref } from "vue";
 
 export default {
+  methods: {
+    async login() {
+      const apiKey = "AIzaSyCrQW-B4oJXv6VWqiIixrjjOmEattzk9Cg"
+      const endpoint = "sendOobCode";
+      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${apiKey}`;
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.email,
+          requestType: "EMAIL_SIGNIN",
+          continueUrl: 'http://localhost:3000' + `?email=${this.email}`,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        const code = data.error.message.replace(/ ?: [\w ,.'"()]+$/, "");
+        throw Error(code);
+      }
+      return data;
+    },
+  },
   setup() {
-    // const supabase = useSupabaseClient();
-    // const router = useRouter();
-
     const loading = ref(false);
     const email = ref("");
-
-    const handleLogin = async () => {
-      // try {
-      //   loading.value = true;
-      //   const { error } = await supabase.auth.signIn({ email: email.value });
-      //   if (error) throw error;
-      //   router.push("/");
-      // } catch (error) {
-      //   alert(error.error_description || error.message);
-      // } finally {
-      //   loading.value = false;
-      // }
-    };
 
     return {
       loading,
       email,
-      handleLogin,
     };
   },
 };
