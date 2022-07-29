@@ -2,9 +2,15 @@ import { defineNuxtConfig } from "nuxt";
 import invertColor from "./utils/invert-color";
 
 const APP_NAME = 'Swapu'
+const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      FIREBASE_API_KEY,
+    }
+  },
   meta: {
     title: APP_NAME,
     meta: [

@@ -124,11 +124,11 @@ export default {
   },
   async setup() {
     const route = useRoute();
+    const runtimeConfig = useRuntimeConfig()
 
     if (route.query.oobCode) {
-      const apiKey = "AIzaSyCrQW-B4oJXv6VWqiIixrjjOmEattzk9Cg";
       const endpoint = "signInWithEmailLink";
-      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${apiKey}`;
+      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${runtimeConfig.FIREBASE_API_KEY}`;
       useFetch(url, {
         method: "POST",
         lazy: true,

@@ -46,9 +46,8 @@ import { ref } from "vue";
 export default {
   methods: {
     async login() {
-      const apiKey = "AIzaSyCrQW-B4oJXv6VWqiIixrjjOmEattzk9Cg"
       const endpoint = "sendOobCode";
-      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${apiKey}`;
+      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${this.apiKey}`;
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -68,8 +67,10 @@ export default {
   setup() {
     const loading = ref(false);
     const email = ref("");
+    const runtimeConfig = useRuntimeConfig();
 
     return {
+      apiKey: runtimeConfig.FIREBASE_API_KEY,
       loading,
       email,
     };
