@@ -25,8 +25,8 @@
           <img
             src="/logo.svg"
             class="navbar-brand"
-            height="24"
-            width="100"
+            width="122"
+            height="35"
             alt="Swapu"
           />
         </nuxt-link>
