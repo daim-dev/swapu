@@ -1,38 +1,52 @@
 <template>
-  <div class="container mx-auto px-6 py-12 h-full w-full">
-    <div
-      class="flex justify-center items-center flex-wrap h-full w-full g-6 text-gray-800"
-    >
-      <!-- <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-        <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-          class="w-full"
-          alt="Phone image"
-        />
-      </div> -->
-      <div class="md:w-8/12 lg:w-5/12 w-auto">
+  <div class="container-fluid mx-auto h-full w-full">
+    <div class="flex items-center flex-wrap h-full w-full text-gray-800">
+      <div class="md:w-4/10 w-0 bg-[#F7F7F7]">
+        <img src="/img/login.png" class="w-full" alt="Swapu" />
+      </div>
+      <div class="ml-38">
+        <div class="top-0 right-0 absolute mt-8 mr-10">
+          <span class="text-[#9A9FA5]">Already a member? </span>
+          <nuxt-link to="/login" class="font-semibold">Sign in</nuxt-link>
+        </div>
+        <h1 class="font-semibold text-5xl">Sign up</h1>
+        <p class="font-semibold mt-8">
+          Sign up with an existing Google or Facebook account
+        </p>
+        <button
+          class="w-full btn rounded-lg font-semibold border bg-[#FCFCFC] border-color-[#EFEFEF] mt-8"
+        >
+          Google
+        </button>
+        <button
+          class="w-full btn rounded-lg font-semibold mt-5 border bg-[#FCFCFC] border-color-[#EFEFEF]"
+        >
+          Facebook
+        </button>
+        <hr class="border-color-hr my-8 h-2px" />
         <form @submit.prevent="login" class="w-auto">
-          <div class="form-group">
+          <p class="font-semibold">Or continue with your email address</p>
+          <div>
             <label
               for="emailInput"
-              class="form-label inline-block mb-2 text-gray-700 text-lg"
+              class="form-label inline-block mb-2 text-gray-700 text-lg sr-only"
               >Email address</label
             >
             <input
               type="email"
-              class="form-control text-lg"
+              class="form-control text-lg mt-5 bg-[#F4F4F4] font-semibold rounded-lg border-none"
               id="emailInput"
-              placeholder="Enter email"
+              placeholder="Your email"
               v-model="email"
             />
           </div>
           <button
             type="submit"
             :disabled="loading"
-            class="w-full btn btn-primary"
+            class="w-full btn btn-primary rounded-lg mt-8"
           >
             <template v-if="loading">Loading</template>
-            <template v-else>Send magic link</template>
+            <template v-else>Continue</template>
           </button>
         </form>
       </div>
@@ -53,7 +67,7 @@ export default {
         body: JSON.stringify({
           email: this.email,
           requestType: "EMAIL_SIGNIN",
-          continueUrl: 'http://localhost:3000' + `?email=${this.email}`,
+          continueUrl: "http://localhost:3000" + `?email=${this.email}`,
         }),
       });
       const data = await response.json();
@@ -68,6 +82,10 @@ export default {
     const loading = ref(false);
     const email = ref("");
     const runtimeConfig = useRuntimeConfig();
+
+    definePageMeta({
+      layout: "empty",
+    });
 
     return {
       apiKey: runtimeConfig.FIREBASE_API_KEY,
