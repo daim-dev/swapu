@@ -31,10 +31,7 @@
     <p class="opacity-50">
       Copyright © 2022 SwapU | <a class="underline">Privacy Policy</a> |
       <a class="underline">Terms and Conditions</a> |
-      <a class="underline">Cookie Policy</a> | Site By
-      <a href="https://daim.dev" target="_blank" class="underline"
-        >Daim Digital</a
-      >
+      <a class="underline">Cookie Policy</a>
     </p>
   </section>
 </template>
