@@ -32,7 +32,7 @@
         </nuxt-link>
       </div>
 
-      <Search class="flex-auto items-center hidden md:flex self-center"></Search>
+      <!-- <Search class="flex-auto items-center hidden md:flex self-center"></Search> -->
 
       <div class="flex justify-end md:min-w-225px">
         <UserMenu></UserMenu>
