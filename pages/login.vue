@@ -1,5 +1,12 @@
 <template>
   <div class="container-fluid mx-auto h-full w-full">
+    <Title v-if="title" itemprop="name">{{ title }}</Title>
+    <Meta
+      v-if="description"
+      name="description"
+      :content="description"
+      itemprop="description"
+    />
     <div class="flex items-center flex-wrap h-full w-full text-gray-800">
       <div class="md:w-4/10 w-0 bg-[#F7F7F7] relative">
         <img src="/img/login.png" class="w-full" alt="Swapu" />
@@ -98,6 +105,8 @@ export default {
       apiKey: runtimeConfig.FIREBASE_API_KEY,
       loading,
       email,
+      title: "Sign up",
+      description: "Sign up with an existing Google or Facebook account",
     };
   },
 };
