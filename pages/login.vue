@@ -1,8 +1,15 @@
 <template>
   <div class="container-fluid mx-auto h-full w-full">
     <div class="flex items-center flex-wrap h-full w-full text-gray-800">
-      <div class="md:w-4/10 w-0 bg-[#F7F7F7]">
+      <div class="md:w-4/10 w-0 bg-[#F7F7F7] relative">
         <img src="/img/login.png" class="w-full" alt="Swapu" />
+        <img
+            src="/logo.svg"
+            class="navbar-brand absolute top-1/2 left-1/3 transform -translate-x-1/3 -translate-y-1/2"
+            width="122"
+            height="35"
+            alt="Swapu"
+          />
       </div>
       <div class="ml-38">
         <div class="top-0 right-0 absolute mt-8 mr-10">
