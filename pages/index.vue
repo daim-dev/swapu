@@ -129,7 +129,7 @@ export default {
     if (route.query.oobCode) {
       const endpoint = "signInWithEmailLink";
       const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${runtimeConfig.FIREBASE_API_KEY}`;
-      useFetch(url, {
+      const { data } = await useFetch(url, {
         method: "POST",
         lazy: true,
         server: false,

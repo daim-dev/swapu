@@ -84,8 +84,8 @@ export default defineComponent({
       } else {
         items.push({
           icon: "i-carbon-login",
-          name: "Login",
-          url: "/login",
+          name: "Sign Up",
+          url: "/sign-up",
           pos: "3/1",
         });
       }

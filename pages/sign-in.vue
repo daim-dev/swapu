@@ -20,10 +20,10 @@
       </div>
       <div class="ml-38">
         <div class="top-0 right-0 absolute mt-8 mr-10">
-          <span class="text-[#9A9FA5]">Already a member? </span>
-          <nuxt-link to="/login" class="font-semibold">Sign in</nuxt-link>
+          <span class="text-[#9A9FA5]">Not a member? </span>
+          <nuxt-link to="/sign-up" class="font-semibold">Sign up</nuxt-link>
         </div>
-        <h1 class="font-semibold text-5xl">Sign up</h1>
+        <h1 class="font-semibold text-5xl">Sign In</h1>
         <p class="font-semibold mt-8">
           Sign up with an existing Google or Facebook account
         </p>
@@ -110,8 +110,8 @@ export default {
       apiKey: runtimeConfig.FIREBASE_API_KEY,
       loading,
       email,
-      title: "Sign up",
-      description: "Sign up with an existing Google or Facebook account",
+      title: "Sign in",
+      description: "Sign in with an existing Google or Facebook account",
     };
   },
 };
