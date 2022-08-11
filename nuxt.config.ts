@@ -3,12 +3,14 @@ import invertColor from "./utils/invert-color";
 
 const APP_NAME = 'Swapu'
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY
+const APP_URL = process.env.CF_PAGES_URL
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       FIREBASE_API_KEY,
+      APP_URL,
     }
   },
   meta: {
@@ -76,7 +78,7 @@ export default defineNuxtConfig({
         "form-control":
           "block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         "form-group": "mb-6",
-        "form-label": "form-label inline-block mb-2 text-gray-700",
+        "form-label": "inline-block mb-2 text-gray-700",
       },
       // dynamic shortcuts
       [
