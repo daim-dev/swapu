@@ -25,7 +25,7 @@
         </div>
         <h1 class="font-semibold text-5xl">Sign In</h1>
         <p class="font-semibold mt-8">
-          Sign up with an existing Google or Facebook account
+          Sign in with an existing Google or Facebook account
         </p>
         <button
           class="w-full btn rounded-lg font-semibold border bg-[#FCFCFC] border-color-[#EFEFEF] mt-8 flex justify-center"
