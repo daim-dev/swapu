@@ -2,7 +2,7 @@
   <div class="position-relative">
     <button v-bind="$attrs" @click="toggle" class="btn" v-if="user">
       <img
-        src="https://avatars.dicebear.com/api/identicon/daim-dashboard.svg"
+        src="https://avatars.dicebear.com/api/identicon/swapu.svg"
         class="rounded-full w-32px h-32px m-auto"
         width="32"
         height="32"
@@ -31,8 +31,11 @@
         @click="toggle"
         class="flex px-4 hover:bg-gray-500/10 btn"
       >
-        <span :class="item.icon" class="text-gray w-32px h-32px my-auto mr-3"></span>
-        <span class="text-black-500 hover:text-grey-500">{{item.name}}</span>
+        <span class="bg-[#E9ECF8] mr-3 my-auto flex rounded-lg w-29px h-29px">
+          <span :class="item.icon" class="text-primary w-16px h-16px m-auto"></span>
+        </span>
+        <span class="text-black-500 hover:text-grey-500 font-semibold text-sm my-auto">{{ item.name }}</span>
+        <span class="i-carbon-chevron-right ml-auto"></span>
       </Link>
     </div>
   </div>
@@ -42,7 +45,7 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   setup() {
-    const user = ref(null);
+    const user = ref({});
     return { user };
   },
   data() {
