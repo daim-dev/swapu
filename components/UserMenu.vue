@@ -42,7 +42,6 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   setup() {
-    // const user = useSupabaseUser();
     const user = ref(null);
     return { user };
   },
@@ -63,6 +62,12 @@ export default defineComponent({
       const items = [];
       if (this.user) {
         items.push(
+          {
+            icon: "i-carbon-settings",
+            name: "Settings",
+            url: "/settings/language",
+            pos: "3/1",
+          },
           {
             icon: "i-carbon-user",
             name: "Profile",
