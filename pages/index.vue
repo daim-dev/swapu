@@ -72,8 +72,8 @@
         <h2 class="text-4xl font-bold">Recent swap offers</h2>
         <button class="btn btn-primary rounded-lg">Explore All</button>
       </div>
-      <div>Card 1</div>
-      <div>Card 2</div>
+      <!-- <div>Card 1</div>
+      <div>Card 2</div> -->
     </section>
     <section class="py-30">
       <h2 class="text-4xl font-bold">Categories</h2>
