@@ -76,7 +76,7 @@ export default defineComponent({
           },
           {
             icon: "i-carbon-logout",
-            name: "Logout",
+            name: "Log out",
             url: "/logout",
             pos: "3/1",
           },
