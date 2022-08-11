@@ -23,7 +23,7 @@
             type="email"
             placeholder="Your email address"
           />
-          <button class="btn btn-primary rounded-r">Subscribe</button>
+          <button class="btn btn-primary rounded-r shadow-none">Subscribe</button>
         </div>
       </div>
     </div>
