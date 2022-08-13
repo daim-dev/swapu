@@ -56,8 +56,8 @@ const { data: items } = await useAsyncData("content-navigation", () => {
       pos: "1/4",
     },
     {
-      icon: "i-carbon-add",
-      name: "Create",
+      icon: "i-icon-park-outline-add",
+      name: "Add an item",
       url: "/create",
       pos: "1/5",
     },
