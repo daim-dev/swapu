@@ -82,9 +82,16 @@
             <div class="text-sm text-[#808080]">Member</div>
           </span>
         </div>
-        <button class="btn border rounded-lg border-color-[#ECECEC] w-full py-1 mt-3">View Account info</button>
+        <nuxt-link
+          class="block btn border rounded-lg border-color-[#ECECEC] w-full py-1 mt-3"
+          to="/profile"
+          @click="toggle"
+          >View Account info</nuxt-link
+        >
       </div>
-      <div class="uppercase my-3 text-[#959595] text-sm mx-4 font-bold opacity-50">
+      <div
+        class="uppercase my-3 text-[#959595] text-sm mx-4 font-bold opacity-50"
+      >
         Account
       </div>
       <Link
@@ -140,12 +147,6 @@ export default defineComponent({
             icon: "i-carbon-settings",
             name: "Settings",
             url: "/settings/language",
-            pos: "3/1",
-          },
-          {
-            icon: "i-carbon-user",
-            name: "Profile",
-            url: "/profile",
             pos: "3/1",
           },
           {
