@@ -27,7 +27,7 @@
           </span>
         </span>
       </button>
-      <Link class="btn btn-primary rounded-lg py-3 px-4" url="/create">
+      <Link class="btn btn-primary rounded-lg py-3 px-4 hidden sm:inline-block" url="/create">
         <span class="flex">
           <span
             class="i-icon-park-outline-add w-24px h-24px my-auto mr-2"
