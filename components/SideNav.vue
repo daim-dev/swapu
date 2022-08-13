@@ -1,20 +1,27 @@
 <template>
   <div
-    class="flex grow min-h-full shadow-md bg-white flex-col transition-all duration-500"
+    class="flex grow shadow-md bg-white flex-col transition-all duration-500"
     :class="{ 'opacity-0': !draw, 'w-0': !draw, 'w-60': draw }"
   >
     <div
       v-for="item of items"
       :key="item.name"
-      class="relative flex px-4 hover:bg-gray-500/10"
+      class="relative hover:bg-gray-500/10 flex"
       :class="{ 'bg-gray-200': $route.path === item.url }"
     >
-      <span :class="item.icon" class="text-gray w-32px h-32px my-auto"></span>
       <Link
         v-bind="item"
         @click="$emit('update:draw', false)"
-        class="relative hover:text-grey-500 btn text-black-500"
-      ></Link>
+        class="flex px-4 btn relative"
+      >
+        <span class="bg-[#E9ECF8] mr-3 my-auto flex rounded-lg w-29px h-29px">
+          <span
+            :class="item.icon"
+            class="text-primary w-16px h-16px m-auto"
+          ></span>
+        </span>
+        <span class="text-black-500 hover:text-grey-500 font-semibold text-sm my-auto whitespace-nowrap">{{ item.name }}</span>
+      </Link>
     </div>
   </div>
 </template>
