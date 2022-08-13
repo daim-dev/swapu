@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-6 py-6 h-full w-full">
     <div class="flex">
-      <div>
+      <div class="w-60">
         <div class="uppercase text-[#92989E] p-2 font-semibold text-sm">Settings</div>
         <div class="font-semibold my-2 text-lg py-2 px-4 text-[#6F767E]">
           <NuxtLink to="/settings/language">Language</NuxtLink>
