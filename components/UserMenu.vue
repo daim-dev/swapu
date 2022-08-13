@@ -1,6 +1,20 @@
 <template>
   <div class="position-relative">
     <template v-if="user">
+      <span class="hidden lg:inline-block">
+        <button class="btn border-r border-color-[#D9D9D9] py-1">
+          <span class="h-24px w-24px m-auto i-akar-icons-search flex"></span>
+          <span class="sr-only">Search</span>
+        </button>
+        <button class="btn border-r border-color-[#D9D9D9] py-1">
+          <span class="h-24px w-24px m-auto i-bi-question-lg flex"></span>
+          <span class="sr-only">Help</span>
+        </button>
+        <button class="btn">
+          <span class="h-24px w-24px m-auto i-lucide-bell flex"></span>
+          <span class="sr-only">Notifications</span>
+        </button>
+      </span>
       <button
         v-bind="$attrs"
         @click="toggle"
@@ -27,7 +41,10 @@
           </span>
         </span>
       </button>
-      <Link class="btn btn-primary rounded-lg py-3 px-4 hidden sm:inline-block" url="/create">
+      <Link
+        class="btn btn-primary rounded-lg py-3 px-4 hidden sm:inline-block"
+        url="/create"
+      >
         <span class="flex">
           <span
             class="i-icon-park-outline-add w-24px h-24px my-auto mr-2"
