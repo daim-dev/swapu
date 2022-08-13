@@ -6,7 +6,7 @@
     <div
       class="w-full flex flex-wrap items-center justify-between px-3 sm:px-8 h-64px"
     >
-      <div class="flex md:min-w-225px">
+      <div class="flex">
         <button
           class="navbar-toggler flex text-black border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
           type="button"
@@ -30,11 +30,20 @@
             alt="Swapu"
           />
         </nuxt-link>
+        <div class="hidden md:flex">
+          <button class="btn flex">
+            <span class="font-semibold">Category</span>
+            <span
+              class="i-carbon-chevron-down ml-1 my-auto text-[#494949]"
+            ></span>
+          </button>
+          <button class="font-semibold btn">Blog</button>
+        </div>
       </div>
 
       <!-- <Search class="flex-auto items-center hidden md:flex self-center"></Search> -->
 
-      <div class="flex justify-end md:min-w-225px">
+      <div class="flex justify-end">
         <UserMenu></UserMenu>
       </div>
     </div>
