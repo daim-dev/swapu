@@ -34,7 +34,7 @@
       <div class="form-group">
         <button
           type="submit"
-          class="btn btn-primary block w-full"
+          class="btn btn-primary block w-full rounded-lg"
           :disabled="loading"
         >
           {{ loading ? "Loading ..." : "Update" }}
