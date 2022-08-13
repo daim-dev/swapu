@@ -1,14 +1,41 @@
 <template>
   <div class="position-relative">
-    <button v-bind="$attrs" @click="toggle" class="btn" v-if="user">
-      <img
-        src="https://avatars.dicebear.com/api/identicon/swapu.svg"
-        class="rounded-full w-32px h-32px m-auto"
-        width="32"
-        height="32"
-        alt="Avatar"
-      />
-    </button>
+    <template v-if="user">
+      <button
+        v-bind="$attrs"
+        @click="toggle"
+        class="btn relative p-0 mx-8 rounded-full"
+      >
+        <img
+          src="https://avatars.dicebear.com/api/identicon/swapu.svg"
+          class="rounded-full w-32px h-32px m-auto"
+          width="32"
+          height="32"
+          alt="Avatar"
+        />
+        <span
+          class="absolute border-2 border-color-[#FAFAFA] bg-primary w-15px h-15px rounded-full -bottom-4px -right-4px"
+        >
+          <span class="flex h-full">
+            <span
+              class="h-8px w-8px m-auto text-white"
+              :class="{
+                'i-carbon-chevron-up': !open,
+                'i-carbon-chevron-down': open,
+              }"
+            ></span>
+          </span>
+        </span>
+      </button>
+      <Link class="btn btn-primary rounded-lg py-3 px-4" url="/create">
+        <span class="flex">
+          <span
+            class="i-icon-park-outline-add w-24px h-24px my-auto mr-2"
+          ></span>
+          <span class="my-auto text-sm font-semibold">Add an item</span>
+        </span>
+      </Link>
+    </template>
 
     <template v-else>
       <Link
@@ -32,9 +59,15 @@
         class="flex px-4 hover:bg-gray-500/10 btn"
       >
         <span class="bg-[#E9ECF8] mr-3 my-auto flex rounded-lg w-29px h-29px">
-          <span :class="item.icon" class="text-primary w-16px h-16px m-auto"></span>
+          <span
+            :class="item.icon"
+            class="text-primary w-16px h-16px m-auto"
+          ></span>
         </span>
-        <span class="text-black-500 hover:text-grey-500 font-semibold text-sm my-auto">{{ item.name }}</span>
+        <span
+          class="text-black-500 hover:text-grey-500 font-semibold text-sm my-auto"
+          >{{ item.name }}</span
+        >
         <span class="i-carbon-chevron-right ml-auto"></span>
       </Link>
     </div>
