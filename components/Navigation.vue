@@ -4,7 +4,7 @@
     bg-nav
   >
     <div
-      class="w-full flex flex-wrap items-center justify-between px-3 h-64px"
+      class="w-full flex flex-wrap items-center justify-between px-3 sm:px-8 h-64px"
     >
       <div class="flex md:min-w-225px">
         <button
