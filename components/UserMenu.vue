@@ -68,6 +68,25 @@
       :class="dropdownClasses"
       class="position-absolute transition-all duration-500 w-60 shadow-lg bg-white right-0 z-1"
     >
+      <div class="p-3 border-b border-color-[#C4C4C4]">
+        <div class="flex">
+          <img
+            src="https://avatars.dicebear.com/api/identicon/swapu.svg"
+            class="rounded-full w-42px h-42px my-auto"
+            width="42"
+            height="42"
+            alt="Avatar"
+          />
+          <span v-if="user" class="pl-2">
+            <div>{{ user.name }}</div>
+            <div class="text-sm text-[#808080]">Member</div>
+          </span>
+        </div>
+        <button class="btn border rounded-lg border-color-[#ECECEC] w-full py-1 mt-3">View Account info</button>
+      </div>
+      <div class="uppercase my-3 text-[#959595] text-sm mx-4 font-bold opacity-50">
+        Account
+      </div>
       <Link
         v-for="item of items"
         v-bind="item"
@@ -95,7 +114,9 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   setup() {
-    const user = ref({});
+    const user = ref({
+      name: "Dmytro Huz",
+    });
     return { user };
   },
   data() {
