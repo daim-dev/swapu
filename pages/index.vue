@@ -148,7 +148,7 @@ export default {
           email: window.localStorage.getItem("loginEmail"),
         });
         window.localStorage.removeItem("loginEmail");
-        const profile = auth.fetchProfile();
+        const profile = await auth.fetchProfile();
         console.log('profile', profile);
 
         // Do whatever you want with the newly logged in user
