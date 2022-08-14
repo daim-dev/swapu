@@ -28,12 +28,14 @@
           Sign in with an existing Google or Facebook account
         </p>
         <button
+          @click="loginWithGoogle"
           class="w-full btn rounded-lg font-semibold border bg-[#FCFCFC] border-color-[#EFEFEF] mt-8 flex justify-center"
         >
           <span class="i-logos-google-icon w-24px h-24px mr-2"></span>
           Google
         </button>
         <button
+          @click="loginWithFacebook"
           class="w-full btn rounded-lg font-semibold mt-5 border bg-[#FCFCFC] border-color-[#EFEFEF] flex justify-center"
         >
           <span
@@ -42,7 +44,7 @@
           Facebook
         </button>
         <hr class="border-color-hr my-8 h-2px" />
-        <form @submit.prevent="login" class="w-auto">
+        <form @submit.prevent="loginWithEmail" class="w-auto">
           <p class="font-semibold">Or continue with your email address</p>
           <div class="flex rounded-lg bg-[#F4F4F4] items-center mt-5">
             <label
@@ -50,7 +52,9 @@
               class="form-label inline-block mb-2 text-gray-700 text-lg sr-only"
               >Email address</label
             >
-            <span class="i-uil-envelope-alt w-24px h-24px text-[#6F767E] m-3"></span>
+            <span
+              class="i-uil-envelope-alt w-24px h-24px text-[#6F767E] m-3"
+            ></span>
             <input
               type="email"
               class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-y-none border-r-none flex-1 border-l-2 border-color-[#2A85FF] my-3 mr-3 pl-1 p-0"
@@ -75,26 +79,22 @@
 
 <script lang="ts">
 import { ref } from "vue";
+import Auth from "firebase-auth-lite";
 
 export default {
   methods: {
-    async login() {
-      const endpoint = "sendOobCode";
-      const url = `https://identitytoolkit.googleapis.com/v1/accounts:${endpoint}?key=${this.apiKey}`;
-      const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.email,
-          requestType: "EMAIL_SIGNIN",
-          continueUrl: "http://localhost:3000" + `?email=${this.email}`,
-        }),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        const code = data.error.message.replace(/ ?: [\w ,.'"()]+$/, "");
-        throw Error(code);
-      }
-      return data;
+    async loginWithEmail() {
+      // We need to store somewhere the user email localy in order to validate that is the same user who clicked the email than the one who requested the email
+      window.localStorage.setItem("loginEmail", this.email);
+
+      // Then we request the email to be sent to the user
+      await this.auth.sendOobCode("EMAIL_SIGNIN", this.email);
+    },
+    async loginWithGoogle() {
+      await this.auth.signInWithProvider("google.com");
+    },
+    async loginWithFacebook() {
+      await this.auth.signInWithProvider("facebook.com");
     },
   },
   setup() {
@@ -106,7 +106,16 @@ export default {
       layout: "empty",
     });
 
+    let auth;
+    if (process.client) {
+      auth = new Auth({
+        apiKey: runtimeConfig.FIREBASE_API_KEY,
+        redirectUri: runtimeConfig.APP_URL,
+      });
+    }
+
     return {
+      auth,
       apiKey: runtimeConfig.FIREBASE_API_KEY,
       loading,
       email,
