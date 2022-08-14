@@ -122,6 +122,8 @@
 <script>
 import transformFirestore from "~/utils/transform-firestore";
 import renameKeys from "~/utils/remap-listing-keys";
+import Auth from "firebase-auth-lite";
+
 export default {
   data() {
     return {
@@ -131,12 +133,23 @@ export default {
     };
   },
   async setup() {
+    const runtimeConfig = useRuntimeConfig();
+    let auth;
+    if (process.client) {
+      auth = new Auth({
+        apiKey: runtimeConfig.FIREBASE_API_KEY,
+        redirectUri: runtimeConfig.APP_URL,
+      });
+    }
+  
     async function handleRedirect() {
       try {
         await auth.handleSignInRedirect({
           email: window.localStorage.getItem("loginEmail"),
         });
         window.localStorage.removeItem("loginEmail");
+        const profile = auth.fetchProfile();
+        console.log('profile', profile);
 
         // Do whatever you want with the newly logged in user
       } catch (error) {
