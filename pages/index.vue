@@ -158,7 +158,7 @@ export default {
     }
 
     if (process.client) {
-      handleRedirect();
+      await handleRedirect();
     }
 
     const url =
