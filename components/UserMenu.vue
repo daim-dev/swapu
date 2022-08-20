@@ -76,8 +76,8 @@
             height="42"
             alt="Avatar"
           />
-          <span v-if="user" class="pl-2">
-            <div>{{ user.name }}</div>
+          <span v-if="profile && profile.userName" class="pl-2">
+            <div>{{ profile.userName }}</div>
             <div class="text-sm text-[#808080]">Member</div>
           </span>
         </div>
@@ -118,12 +118,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useUserStore } from "~/stores/user";
 export default defineComponent({
   setup() {
-    const user = ref({
-      name: "Dmytro Huz",
-    });
-    return { user };
+    const store = useUserStore();
+    const profile = store.profile;
+    const user = store.user;
+    return { user, profile };
   },
   data() {
     return {
@@ -139,9 +140,8 @@ export default defineComponent({
       };
     },
     items() {
-      const items = [];
       if (this.user) {
-        items.push(
+        return [
           {
             icon: "i-carbon-settings",
             name: "Settings",
@@ -154,16 +154,17 @@ export default defineComponent({
             url: "/logout",
             pos: "3/1",
           },
-        );
+        ];
       } else {
-        items.push({
-          icon: "i-carbon-login",
-          name: "Sign Up",
-          url: "/sign-up",
-          pos: "3/1",
-        });
+        return [
+          {
+            icon: "i-carbon-login",
+            name: "Sign Up",
+            url: "/sign-up",
+            pos: "3/1",
+          },
+        ];
       }
-      return items;
     },
   },
   methods: {

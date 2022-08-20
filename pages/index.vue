@@ -141,15 +141,13 @@ export default {
         redirectUri: runtimeConfig.APP_URL,
       });
     }
-  
+
     async function handleRedirect() {
       try {
         await auth.handleSignInRedirect({
           email: window.localStorage.getItem("loginEmail"),
         });
         window.localStorage.removeItem("loginEmail");
-        const profile = await auth.fetchProfile();
-        console.log('profile', profile);
 
         // Do whatever you want with the newly logged in user
       } catch (error) {
