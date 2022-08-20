@@ -9,10 +9,11 @@
   "devDependencies": {
     "@iconify/json": "2.1.68",
     "@unocss/nuxt": "0.41.1",
-    "nuxt": "3.0.0-rc.3"
+    "nuxt": "^3.0.0-rc.8"
   },
   "dependencies": {
+    "@pinia/nuxt": "0.4.1",
     "@unocss/reset": "0.41.1",
-    "firebase-auth-lite": "^0.8.9"
+    "firebase-auth-lite": "0.8.9"
   }
 }
