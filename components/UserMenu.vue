@@ -1,67 +1,69 @@
 <template>
   <div class="position-relative">
-    <template v-if="user">
-      <span class="hidden lg:inline-block">
-        <button class="btn border-r border-color-[#D9D9D9] py-1">
-          <span class="h-24px w-24px m-auto i-akar-icons-search flex"></span>
-          <span class="sr-only">Search</span>
-        </button>
-        <button class="btn border-r border-color-[#D9D9D9] py-1">
-          <span class="h-24px w-24px m-auto i-bi-question-lg flex"></span>
-          <span class="sr-only">Help</span>
-        </button>
-        <button class="btn">
-          <span class="h-24px w-24px m-auto i-lucide-bell flex"></span>
-          <span class="sr-only">Notifications</span>
-        </button>
-      </span>
-      <button
-        v-bind="$attrs"
-        @click="toggle"
-        class="btn relative p-0 mx-8 rounded-full"
-      >
-        <img
-          src="https://avatars.dicebear.com/api/identicon/swapu.svg"
-          class="rounded-full w-32px h-32px m-auto"
-          width="32"
-          height="32"
-          alt="Avatar"
-        />
-        <span
-          class="absolute border-2 border-color-[#FAFAFA] bg-primary w-15px h-15px rounded-full -bottom-4px -right-4px"
+    <div class="flex">
+      <template v-if="user">
+        <span class="hidden lg:inline-block">
+          <button class="btn border-r border-color-[#D9D9D9] py-1">
+            <span class="h-24px w-24px m-auto i-akar-icons-search flex"></span>
+            <span class="sr-only">Search</span>
+          </button>
+          <button class="btn border-r border-color-[#D9D9D9] py-1">
+            <span class="h-24px w-24px m-auto i-bi-question-lg flex"></span>
+            <span class="sr-only">Help</span>
+          </button>
+          <button class="btn">
+            <span class="h-24px w-24px m-auto i-lucide-bell flex"></span>
+            <span class="sr-only">Notifications</span>
+          </button>
+        </span>
+        <button
+          v-bind="$attrs"
+          @click="toggle"
+          class="btn relative p-0 mx-8 rounded-full"
         >
-          <span class="flex h-full">
-            <span
-              class="h-8px w-8px m-auto text-white"
-              :class="{
-                'i-carbon-chevron-up': !open,
-                'i-carbon-chevron-down': open,
-              }"
-            ></span>
-          </span>
-        </span>
-      </button>
-      <Link
-        class="btn btn-primary rounded-lg py-3 px-4 hidden sm:inline-block"
-        url="/create"
-      >
-        <span class="flex">
+          <img
+            src="https://avatars.dicebear.com/api/identicon/swapu.svg"
+            class="rounded-full w-32px h-32px m-auto"
+            width="32"
+            height="32"
+            alt="Avatar"
+          />
           <span
-            class="i-icon-park-outline-add w-24px h-24px my-auto mr-2"
-          ></span>
-          <span class="my-auto text-sm font-semibold">Add an item</span>
-        </span>
-      </Link>
-    </template>
+            class="absolute border-2 border-color-[#FAFAFA] bg-primary w-15px h-15px rounded-full -bottom-4px -right-4px"
+          >
+            <span class="flex h-full">
+              <span
+                class="h-8px w-8px m-auto text-white"
+                :class="{
+                  'i-carbon-chevron-up': !open,
+                  'i-carbon-chevron-down': open,
+                }"
+              ></span>
+            </span>
+          </span>
+        </button>
+        <Link
+          class="btn btn-primary rounded-lg py-3 px-4 hidden sm:inline-block"
+          url="/create"
+        >
+          <span class="flex">
+            <span
+              class="i-icon-park-outline-add w-24px h-24px my-auto mr-2"
+            ></span>
+            <span class="my-auto text-sm font-semibold">Add an item</span>
+          </span>
+        </Link>
+      </template>
 
-    <template v-else>
-      <Link
-        v-bind="item"
-        v-for="item of items"
-        :key="item.name"
-        class="btn btn-primary rounded-lg py-3 px-4"
-      />
-    </template>
+      <template v-else>
+        <Link
+          v-bind="item"
+          v-for="item of items"
+          :key="item.name"
+          class="btn btn-primary rounded-lg py-3 px-4 my-auto"
+        />
+      </template>
+    </div>
 
     <div
       :class="dropdownClasses"
