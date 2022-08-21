@@ -57,9 +57,11 @@
 
       <template v-else>
         <Link
-          v-bind="item"
-          v-for="item of items"
-          :key="item.name"
+          v-bind="{
+            icon: 'i-carbon-login',
+            name: 'Sign Up',
+            url: '/sign-up'
+          }"
           class="btn btn-primary rounded-lg py-3 px-4 my-auto"
         />
       </template>
