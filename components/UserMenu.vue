@@ -78,8 +78,11 @@
             height="42"
             alt="Avatar"
           />
-          <span v-if="profile && profile.userName" class="pl-2">
-            <div>{{ profile.userName }}</div>
+          <span class="pl-2">
+            <div v-if="profile && profile.userName">{{ profile.userName }}</div>
+            <div v-else-if="user && user.email" class="truncate w-60">
+              {{ user.email }}
+            </div>
             <div class="text-sm text-[#808080]">Member</div>
           </span>
         </div>
