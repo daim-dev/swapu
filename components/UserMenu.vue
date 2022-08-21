@@ -148,16 +148,40 @@ export default defineComponent({
       if (this.user) {
         return [
           {
+            icon: "i-carbon-cube",
+            name: "My items",
+            url: "/profile/",
+            pos: "1/1",
+          },
+          {
+            icon: "i-ph-arrows-clockwise",
+            name: "My swaps",
+            url: "/profile/",
+            pos: "2/1",
+          },
+          {
+            icon: "i-bx-heart",
+            name: "Favourites",
+            url: "/profile/",
+            pos: "3/1",
+          },
+          {
+            icon: "i-eva-info-outline",
+            name: "User guide",
+            url: "/user-guide",
+            pos: "4/1",
+          },
+          {
             icon: "i-carbon-settings",
             name: "Settings",
             url: "/settings/language",
-            pos: "3/1",
+            pos: "5/1",
           },
           {
             icon: "i-carbon-logout",
             name: "Log out",
             url: "/logout",
-            pos: "3/1",
+            pos: "6/1",
           },
         ];
       } else {
