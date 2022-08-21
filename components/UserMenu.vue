@@ -69,7 +69,7 @@
 
     <div
       :class="dropdownClasses"
-      class="position-absolute transition-all duration-500 w-60 shadow-lg bg-white right-0 z-1"
+      class="position-absolute transition-all duration-500 min-w-60 shadow-lg bg-white right-0 z-1"
     >
       <div class="p-3 border-b border-color-[#C4C4C4]">
         <div class="flex">
@@ -82,14 +82,14 @@
           />
           <span class="pl-2">
             <div v-if="profile && profile.userName">{{ profile.userName }}</div>
-            <div v-else-if="user && user.email" class="truncate w-60">
+            <div v-else-if="user && user.email" class="truncate">
               {{ user.email }}
             </div>
             <div class="text-sm text-[#808080]">Member</div>
           </span>
         </div>
         <nuxt-link
-          class="block btn border rounded-lg border-color-[#ECECEC] w-full py-1 mt-3"
+          class="block btn border rounded-lg border-color-[#ECECEC] w-full py-1 mt-3 text-center"
           to="/profile"
           @click="toggle"
           >View Account info</nuxt-link
