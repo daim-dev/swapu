@@ -150,7 +150,7 @@ export default defineComponent({
       if (this.user) {
         return [
           {
-            icon: "i-carbon-cube",
+            icon: "i-bx-cube",
             name: "My items",
             url: "/profile/",
             pos: "1/1",
