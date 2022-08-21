@@ -50,7 +50,7 @@
 <script>
 export default {
   props: {
-    location: { type: Object, default: null },
+    location: { type: String, default: null },
     dark: { type: Boolean, default: false },
     acronym: { type: String, default: undefined },
     image: { type: String, default: undefined },
