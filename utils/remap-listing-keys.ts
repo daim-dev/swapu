@@ -13,6 +13,9 @@ export default function renameKeys(content) {
     },
   });
   renamed.image = renamed.image?.[0]?.url;
+  if (renamed.price && typeof renamed.price === 'string') {
+    renamed.price = Number(renamed.price)
+  }
   renamed.links = [
     {
       url: `/listings/${renamed.id}`,
