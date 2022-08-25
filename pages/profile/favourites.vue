@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Favourites</h1>
+    <h1 class="font-semibold text-2xl">Favourites</h1>
   </div>
 </template>

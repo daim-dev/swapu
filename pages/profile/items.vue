@@ -1,5 +1,5 @@
 <template>
 <div>
-  <h1>My items</h1>
+  <h1 class="font-semibold text-2xl">My items</h1>
 </div>
 </template>
