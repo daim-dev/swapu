@@ -23,55 +23,62 @@
           <span class="text-[#9A9FA5]">Not a member? </span>
           <nuxt-link to="/sign-up" class="font-semibold">Sign up</nuxt-link>
         </div>
-        <h1 class="font-semibold text-5xl">Sign In</h1>
-        <p class="font-semibold mt-8">
-          Sign in with an existing Google or Facebook account
-        </p>
-        <button
-          @click="loginWithGoogle"
-          class="w-full btn rounded-lg font-semibold border bg-[#FCFCFC] border-color-[#EFEFEF] mt-8 flex justify-center"
-        >
-          <span class="i-logos-google-icon w-24px h-24px mr-2"></span>
-          Google
-        </button>
-        <button
-          @click="loginWithFacebook"
-          class="w-full btn rounded-lg font-semibold mt-5 border bg-[#FCFCFC] border-color-[#EFEFEF] flex justify-center"
-        >
-          <span
-            class="i-ant-design-facebook-filled w-24px h-24px text-[#3b5998] mr-2"
-          ></span>
-          Facebook
-        </button>
-        <hr class="border-color-hr my-8 h-2px" />
-        <form @submit.prevent="loginWithEmail" class="w-auto">
-          <p class="font-semibold">Or continue with your email address</p>
-          <div class="flex rounded-lg bg-[#F4F4F4] items-center mt-5">
-            <label
-              for="emailInput"
-              class="form-label inline-block mb-2 text-gray-700 text-lg sr-only"
-              >Email address</label
-            >
-            <span
-              class="i-uil-envelope-alt w-24px h-24px text-[#6F767E] m-3"
-            ></span>
-            <input
-              type="email"
-              class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-y-none border-r-none flex-1 border-l-2 border-color-[#2A85FF] my-3 mr-3 pl-1 p-0"
-              id="emailInput"
-              placeholder="Your email"
-              v-model="email"
-            />
-          </div>
+        <div v-if="submitted">
+          <h1 class="font-semibold text-5xl">
+            Check your email for sign in link
+          </h1>
+        </div>
+        <div v-else>
+          <h1 class="font-semibold text-5xl">Sign In</h1>
+          <p class="font-semibold mt-8">
+            Sign in with an existing Google or Facebook account
+          </p>
           <button
-            type="submit"
-            :disabled="loading"
-            class="w-full btn btn-primary rounded-lg mt-8 font-bold"
+            @click="loginWithGoogle"
+            class="w-full btn rounded-lg font-semibold border bg-[#FCFCFC] border-color-[#EFEFEF] mt-8 flex justify-center"
           >
-            <template v-if="loading">Loading</template>
-            <template v-else>Continue</template>
+            <span class="i-logos-google-icon w-24px h-24px mr-2"></span>
+            Google
           </button>
-        </form>
+          <button
+            @click="loginWithFacebook"
+            class="w-full btn rounded-lg font-semibold mt-5 border bg-[#FCFCFC] border-color-[#EFEFEF] flex justify-center"
+          >
+            <span
+              class="i-ant-design-facebook-filled w-24px h-24px text-[#3b5998] mr-2"
+            ></span>
+            Facebook
+          </button>
+          <hr class="border-color-hr my-8 h-2px" />
+          <form @submit.prevent="loginWithEmail" class="w-auto">
+            <p class="font-semibold">Or continue with your email address</p>
+            <div class="flex rounded-lg bg-[#F4F4F4] items-center mt-5">
+              <label
+                for="emailInput"
+                class="form-label inline-block mb-2 text-gray-700 text-lg sr-only"
+                >Email address</label
+              >
+              <span
+                class="i-uil-envelope-alt w-24px h-24px text-[#6F767E] m-3"
+              ></span>
+              <input
+                type="email"
+                class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-y-none border-r-none flex-1 border-l-2 border-color-[#2A85FF] my-3 mr-3 pl-1 p-0"
+                id="emailInput"
+                placeholder="Your email"
+                v-model="email"
+              />
+            </div>
+            <button
+              type="submit"
+              :disabled="loading"
+              class="w-full btn btn-primary rounded-lg mt-8 font-bold"
+            >
+              <template v-if="loading">Loading</template>
+              <template v-else>Continue</template>
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -89,6 +96,7 @@ export default {
 
       // Then we request the email to be sent to the user
       await this.auth.sendOobCode("EMAIL_SIGNIN", this.email);
+      this.submitted = true
     },
     async loginWithGoogle() {
       await this.auth.signInWithProvider("google.com");
@@ -99,6 +107,7 @@ export default {
   },
   setup() {
     const loading = ref(false);
+    const submitted = ref(false);
     const email = ref("");
     const runtimeConfig = useRuntimeConfig();
 
@@ -118,6 +127,7 @@ export default {
       auth,
       apiKey: runtimeConfig.FIREBASE_API_KEY,
       loading,
+      submitted,
       email,
       title: "Sign in",
       description: "Sign in with an existing Google or Facebook account",
