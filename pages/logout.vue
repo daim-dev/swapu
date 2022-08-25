@@ -4,7 +4,6 @@
       <template v-if="loading">Logging</template>
       <template v-if="!loading">Logged</template>
       out
-      <template v-if="user">{{ user.email }}</template>
     </h1>
   </div>
 </template>

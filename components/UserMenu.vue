@@ -152,25 +152,25 @@ export default defineComponent({
           {
             icon: "i-bx-cube",
             name: "My items",
-            url: "/profile/",
+            url: "/profile/items",
             pos: "1/1",
           },
           {
             icon: "i-ph-arrows-clockwise",
             name: "My swaps",
-            url: "/profile/",
+            url: "/profile/swaps",
             pos: "2/1",
           },
           {
             icon: "i-bx-heart",
             name: "Favourites",
-            url: "/profile/",
+            url: "/profile/favourites",
             pos: "3/1",
           },
           {
             icon: "i-eva-info-outline",
             name: "User guide",
-            url: "/user-guide",
+            url: "/profile/user-guide",
             pos: "4/1",
           },
           {
