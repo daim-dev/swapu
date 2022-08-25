@@ -44,7 +44,9 @@
       <!-- <Search class="flex-auto items-center hidden md:flex self-center"></Search> -->
 
       <div class="flex justify-end">
-        <UserMenu></UserMenu>
+        <client-only>
+          <UserMenu></UserMenu>
+        </client-only>
       </div>
     </div>
   </nav>
