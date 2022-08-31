@@ -9,19 +9,15 @@
     />
     <Meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/geosynergy-swapu.appspot.com/o/Banner%2FLOGO%20RED%20on%20transparent%20background.png?alt=media&token=81518040-5ec5-4265-bad1-73b0ebab100d"
     ></Meta>
-    <div class="flex flex-auto flex-wrap max-w-1024px mx-auto">
-      <div class="w-full md:w-1/2 flex flex-col justify-center">
-        <h1 class="text-5xl font-brand font-bold py-3">{{heading}}</h1>
-        <p class="text-xl py-3">Swap what you have for what you want</p>
-      </div>
-      <div class="w-full md:w-1/2">
-        <img
-          src="https://swapu.com.au/LandingPageOne/HeaderSectionGuest/Graphic.svg"
-          class="mx-auto"
-          alt=""
-        />
-      </div>
-    </div>
+    <nuxt-link class="flex" to="/">
+      <span class="bg-[#E9ECF8] mr-2 my-auto flex rounded-full w-26px h-26px">
+          <span
+            class="text-primary w-16px h-16px m-auto i-carbon-chevron-left"
+          ></span>
+        </span>
+      <span class="flex">back</span>
+    </nuxt-link>
+    <NuxtPage></NuxtPage>
   </div>
 </template>
 
