@@ -19,6 +19,7 @@
       <div class="w-full flex flex-col justify-center items-center mt-14">
         <nuxt-link
           class="btn btn-primary rounded-lg font-semibold w-260px text-center"
+          to="/create/details"
           >Continue</nuxt-link
         >
       </div>
