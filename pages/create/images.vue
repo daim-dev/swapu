@@ -7,6 +7,19 @@
           To start swapping, all you need is a name, price, and file
         </p> -->
       </div>
+      <div class="bg-[#F4F4F4] p-5 mt-7 text-center">
+        <div>
+          <span class="font-semibold">Drop your images here,</span>
+          <span>or</span> <span class="text-primary">click to browse</span>
+        </div>
+        <div class="text-[#888888] text-center mt-1">
+          1600 x 1200 (4:3) recommended, up to 10MB each.
+        </div>
+      </div>
+      <div class="text-[#888888] pt-2 text-center">Add up to 10 images to your product</div>
+      <div class="w-full mt-4">
+        <div class="font-semibold">Uploads:</div>
+      </div>
       <div class="w-full flex flex-col justify-center items-center mt-14">
         <nuxt-link
           class="btn btn-primary rounded-lg font-semibold w-260px text-center"
