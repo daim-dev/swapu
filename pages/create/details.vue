@@ -8,34 +8,39 @@
         </p>
       </div>
       <div>
-        <div class="w-full md:w-1/2 my-8">
-          <label
-            for="item-name"
-            class="form-label inline-block mb-2 text-gray-700 text-lg font-semibold"
-            >Item name</label
-          >
-          <input
-            type="text"
-            class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none"
-            id="item-name"
-            placeholder="Type here"
-          />
+        <div class="w-full flex my-8">
+          <div class="w-full md:w-1/2 mr-4">
+            <label
+              for="item-name"
+              class="form-label inline-block mb-2 text-gray-700 text-lg font-semibold mb-4"
+              >Item name</label
+            >
+            <input
+              type="text"
+              class="form-control text-xl bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg py-3 px-4"
+              id="item-name"
+              placeholder="Type here"
+            />
+          </div>
+          <div class="w-full md:w-1/2">
+            <label
+              for="item-category"
+              class="form-label inline-block mb-2 text-gray-700 text-lg font-semibold mb-4"
+              >Categories</label
+            >
+            <select
+              placeholder="Select"
+              name="category"
+              id="item-category"
+              class="form-control text-xl bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg py-3 px-4"
+            >
+              <option value="" disabled selected hidden class="text-gray-700">
+                Select
+              </option>
+            </select>
+          </div>
         </div>
-        <div class="w-full md:w-1/2">
-          <label
-            for="item-category"
-            class="form-label inline-block mb-2 text-gray-700 text-lg font-semibold"
-            >Categories</label
-          >
-          <select
-            placeholder="Select"
-            name="category"
-            id="item-category"
-            class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none"
-          >
-            <option value="" disabled selected hidden>Select</option>
-          </select>
-        </div>
+
         <div class="w-full my-8">
           <label
             for="item-description"
@@ -44,17 +49,86 @@
           >
           <textarea
             type="text"
-            class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none"
+            class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg"
             id="item-description"
             placeholder="Type here"
           ></textarea>
         </div>
         <div class="w-full my-8">
           <label
-            for="item-description"
             class="form-label inline-block mb-2 text-gray-700 text-lg font-semibold"
             >Condition</label
           >
+          <div class="flex items-center justify-around">
+            <div
+              class="flex items-center rounded-lg bg-[#F4F4F4] mx-3 w-full"
+            >
+              <input
+                checked
+                id="condition-new"
+                type="radio"
+                value=""
+                name="condition-new"
+                class="hidden"
+              />
+              <label
+                for="condition-new"
+                class="py-4 mx-auto text-lg font-semibold text-[#888888]"
+                >New</label
+              >
+            </div>
+            <div
+              class="flex items-center rounded-lg border border-primary mx-3 w-full"
+            >
+              <input
+                checked
+                id="condition-used-like-new"
+                type="radio"
+                value=""
+                name="condition-used-like-new"
+                class="hidden"
+              />
+              <label
+                for="condition-used-like-new"
+                class="py-4 mx-auto text-lg font-semibold text-primary"
+                >Used (like new)</label
+              >
+            </div>
+            <div
+              class="flex items-center rounded-lg bg-[#F4F4F4] mx-3 w-full"
+            >
+              <input
+                checked
+                id="condition-used-fair"
+                type="radio"
+                value=""
+                name="condition-used-fair"
+                class="hidden"
+              />
+              <label
+                for="condition-used-fair"
+                class="py-4 mx-auto text-lg font-semibold text-[#888888]"
+                >Used (fair)</label
+              >
+            </div>
+            <div
+              class="flex items-center rounded-lg bg-[#F4F4F4] mx-3 w-full"
+            >
+              <input
+                checked
+                id="condition-used-good"
+                type="radio"
+                value=""
+                name="condition-used-good"
+                class="hidden"
+              />
+              <label
+                for="condition-used-good"
+                class="py-4 mx-auto text-lg font-semibold text-[#888888]"
+                >Used (good)</label
+              >
+            </div>
+          </div>
         </div>
       </div>
       <div class="w-full flex flex-col justify-center items-center mt-14">
