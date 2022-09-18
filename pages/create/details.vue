@@ -60,71 +60,64 @@
             >Condition</label
           >
           <div class="flex items-center justify-around">
-            <div
-              class="flex items-center rounded-lg bg-[#F4F4F4] mx-3 w-full"
-            >
+            <div class="flex items-center mx-3 w-full">
               <input
-                checked
+                required
                 id="condition-new"
                 type="radio"
-                value=""
-                name="condition-new"
-                class="hidden"
+                value="new"
+                name="condition"
+                class="hidden peer"
               />
               <label
                 for="condition-new"
-                class="py-4 mx-auto text-lg font-semibold text-[#888888]"
+                class="py-4 mx-auto text-lg font-semibold w-full text-center cursor-pointer rounded-2xl text-[#888888] bg-[#F4F4F4] peer-checked:text-primary peer-checked:border peer-checked:border-primary"
                 >New</label
               >
             </div>
-            <div
-              class="flex items-center rounded-lg border border-primary mx-3 w-full"
-            >
+            <div class="flex items-center mx-3 w-full">
               <input
                 checked
+                required
                 id="condition-used-like-new"
                 type="radio"
-                value=""
-                name="condition-used-like-new"
-                class="hidden"
+                value="used-like-new"
+                name="condition"
+                class="hidden peer"
               />
               <label
                 for="condition-used-like-new"
-                class="py-4 mx-auto text-lg font-semibold text-primary"
+                class="py-4 mx-auto text-lg font-semibold w-full text-center cursor-pointer rounded-2xl text-[#888888] bg-[#F4F4F4] peer-checked:text-primary peer-checked:border peer-checked:border-primary"
                 >Used (like new)</label
               >
             </div>
-            <div
-              class="flex items-center rounded-lg bg-[#F4F4F4] mx-3 w-full"
-            >
+            <div class="flex items-center mx-3 w-full">
               <input
-                checked
+                required
                 id="condition-used-fair"
                 type="radio"
-                value=""
-                name="condition-used-fair"
-                class="hidden"
+                value="used-fair"
+                name="condition"
+                class="hidden peer"
               />
               <label
                 for="condition-used-fair"
-                class="py-4 mx-auto text-lg font-semibold text-[#888888]"
+                class="py-4 mx-auto text-lg font-semibold w-full text-center cursor-pointer rounded-2xl text-[#888888] bg-[#F4F4F4] peer-checked:text-primary peer-checked:border peer-checked:border-primary"
                 >Used (fair)</label
               >
             </div>
-            <div
-              class="flex items-center rounded-lg bg-[#F4F4F4] mx-3 w-full"
-            >
+            <div class="flex items-center mx-3 w-full">
               <input
-                checked
+                required
                 id="condition-used-good"
                 type="radio"
-                value=""
-                name="condition-used-good"
-                class="hidden"
+                value="used-good"
+                name="condition"
+                class="hidden peer"
               />
               <label
                 for="condition-used-good"
-                class="py-4 mx-auto text-lg font-semibold text-[#888888]"
+                class="py-4 mx-auto text-lg font-semibold w-full text-center cursor-pointer rounded-2xl text-[#888888] bg-[#F4F4F4] peer-checked:text-primary peer-checked:border peer-checked:border-primary"
                 >Used (good)</label
               >
             </div>
@@ -133,7 +126,7 @@
       </div>
       <div class="w-full flex flex-col justify-center items-center mt-14">
         <nuxt-link
-          class="btn btn-primary rounded-lg font-semibold w-260px text-center"
+          class="btn btn-primary rounded-lg font-semibold w-260px text-center py-4"
           to="/create/images"
           >Continue</nuxt-link
         >
