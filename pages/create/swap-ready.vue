@@ -9,12 +9,12 @@
       </div>
       <div class="w-full flex justify-center items-center mt-14">
         <nuxt-link
-          class="btn rounded-lg font-semibold w-260px text-center text-[#929090]"
+          class="btn rounded-lg font-semibold w-260px text-center text-[#929090] py-4"
           to="/create/swap-for"
           >Skip</nuxt-link
         >
         <nuxt-link
-          class="btn btn-primary rounded-lg font-semibold w-260px text-center"
+          class="btn btn-primary rounded-lg font-semibold text-center py-4"
           to="/create/swap-for"
           >Add a "Swap Ready package"</nuxt-link
         >
