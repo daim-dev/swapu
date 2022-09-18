@@ -24,10 +24,13 @@
           To start swapping, all you need is a name, price, and file
         </p> -->
       </div>
-      <div class="bg-[#F4F4F4] p-5 mt-7 text-center max-w-600px">
-        <div>
-          <span class="font-semibold">Drop your images here,</span>
-          <span>or</span> <span class="text-primary">click to browse</span>
+      <div class="bg-[#F4F4F4] p-5 mt-7 text-center max-w-600px rounded-lg w-full">
+        <div class="w-full flex items-center mb-3">
+          <span class="i-akar-icons-image text-[#888888] mx-auto"></span>
+        </div>
+        <div class="text-lg">
+          <span class="font-semibold">Drop your images here</span>
+          <span>, or</span> <span class="text-primary">click to browse</span>
         </div>
         <div class="text-[#888888] text-center mt-1">
           1600 x 1200 (4:3) recommended, up to 10MB each.
