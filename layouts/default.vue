@@ -1,11 +1,10 @@
 <template>
   <div class="flex flex-col justify-start body relative">
     <div class="sticky top-0 z-1">
-      <Navigation v-model:draw="draw" :items="items" class="z-2"></Navigation>
+      <Navigation v-model:draw="draw" :items="items" class="z-2 bg-[#F7F7F7]"></Navigation>
       <div class="absolute top-full bottom-0">
         <SideNav
           :items="items"
-          :draw="draw"
           :class="{ 'pointer-events-none': !draw }"
           v-model:draw="draw"
         ></SideNav>
@@ -18,7 +17,7 @@
         <main
           itemprop="mainContentOfPage"
           itemtype="https://schema.org/WebPageElement"
-          class="flex grow self-stretch min-h-screen"
+          class="flex grow self-stretch min-h-screen bg-[#F7F7F7]"
         >
           <slot></slot>
         </main>
