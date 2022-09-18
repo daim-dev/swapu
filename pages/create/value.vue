@@ -19,14 +19,14 @@
       </span>
       <span class="flex">back</span>
     </nuxt-link>
-    <div class="flex flex-auto flex-wrap mx-auto flex-col bg-white p-8 rounded-2xl mt-6">
+    <div class="flex flex-auto flex-wrap items-center mx-auto flex-col bg-white p-8 rounded-2xl mt-6">
       <div class="text-center">
         <h1 class="text-2xl font-semibold">Add approximate value</h1>
         <!-- <p class="font-semibold text-[#929090]">
           To start swapping, all you need is a name, price, and file
         </p> -->
       </div>
-      <div>
+      <div class="max-w-600px mt-6 w-full">
         <div class="w-full mb-6">
           <label
             for="estimated-cash-value"
@@ -38,10 +38,11 @@
             class="form-control text-xl bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg py-3 px-4"
             id="estimated-cash-value"
             placeholder="0.00"
+            min="1"
           />
         </div>
         <div class="flex flex-row">
-          <span class="font-semibold mr-auto text-lg"
+          <span class="font-semibold mr-auto text-lg pr-2"
             >As well as swapping, I'm open to selling too</span
           >
           <label
