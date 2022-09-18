@@ -58,6 +58,7 @@ export default defineNuxtConfig({
           },
         ],
         sans: 'Montserrat:400,700',
+        poppins: 'Poppins:400',
       },
     },
     icons: {
