@@ -17,7 +17,7 @@
         </span>
       <span class="flex">back</span>
     </nuxt-link>
-    <div class="flex flex-auto flex-wrap max-w-1024px mx-auto">
+    <div class="flex flex-auto flex-wrap mx-auto bg-white p-8 rounded-2xl mt-6">
       <div class="w-full flex flex-col justify-center">
         <h1 class="text-4xl font-semibold py-9 text-center">
           What are you planning to Swap?

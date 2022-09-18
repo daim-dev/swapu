@@ -17,14 +17,14 @@
         </span>
       <span class="flex">back</span>
     </nuxt-link>
-    <div class="flex flex-auto flex-wrap max-w-1024px mx-auto flex-col">
+    <div class="flex flex-auto flex-wrap mx-auto items-center flex-col bg-white p-8 rounded-2xl mt-6">
       <div class="text-center">
         <h1 class="text-2xl font-semibold">Add images</h1>
         <!-- <p class="font-semibold text-[#929090]">
           To start swapping, all you need is a name, price, and file
         </p> -->
       </div>
-      <div class="bg-[#F4F4F4] p-5 mt-7 text-center">
+      <div class="bg-[#F4F4F4] p-5 mt-7 text-center max-w-600px">
         <div>
           <span class="font-semibold">Drop your images here,</span>
           <span>or</span> <span class="text-primary">click to browse</span>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="text-[#888888] pt-2 text-center">Add up to 10 images to your product</div>
-      <div class="w-full mt-4">
+      <div class="w-full mt-4 max-w-600px">
         <div class="font-semibold">Uploads:</div>
       </div>
       <div class="w-full flex flex-col justify-center items-center mt-14">

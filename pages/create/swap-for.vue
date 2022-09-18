@@ -17,7 +17,7 @@
         </span>
       <span class="flex">back</span>
     </nuxt-link>
-    <div class="flex flex-auto flex-wrap max-w-1024px mx-auto flex-col">
+    <div class="flex flex-auto flex-wrap mx-auto flex-col bg-white p-8 rounded-2xl mt-6">
       <div class="text-center">
         <h1 class="text-2xl font-semibold">What would you swap it for?</h1>
         <!-- <p class="font-semibold text-[#929090]">
