@@ -19,7 +19,9 @@
       </span>
       <span class="flex">back</span>
     </nuxt-link>
-    <div class="flex flex-auto flex-wrap items-center mx-auto flex-col bg-white p-8 rounded-2xl mt-6">
+    <div
+      class="flex flex-auto flex-wrap items-center mx-auto flex-col bg-white p-8 rounded-2xl mt-6"
+    >
       <div class="text-center">
         <h1 class="text-2xl font-semibold">Add approximate value</h1>
         <!-- <p class="font-semibold text-[#929090]">
@@ -34,6 +36,7 @@
             >Estimated Cash Value</label
           >
           <input
+            v-model="store.cashValue"
             type="number"
             class="form-control text-xl bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg py-3 px-4"
             id="estimated-cash-value"
@@ -50,6 +53,7 @@
             class="inline-flex relative items-center cursor-pointer"
           >
             <input
+              v-model="store.openToSelling"
               type="checkbox"
               name="open-to-selling"
               id="open-to-selling"
@@ -77,14 +81,19 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        title: "SwapU - The Swapping Marketplace",
-        heading: "Create a Listing",
-        description:
-          "Visit Australia's FREE online swap meet! Find cars, boats, motorbikes, furniture, electronics & more for swap across Australia.",
-      };
-    },
-  };
-  </script>
+import { useCreateStore } from "~/stores/create";
+export default {
+  setup() {
+    const store = useCreateStore();
+    return { store };
+  },
+  data() {
+    return {
+      title: "SwapU - The Swapping Marketplace",
+      heading: "Create a Listing",
+      description:
+        "Visit Australia's FREE online swap meet! Find cars, boats, motorbikes, furniture, electronics & more for swap across Australia.",
+    };
+  },
+};
+</script>

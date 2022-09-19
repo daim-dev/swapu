@@ -87,10 +87,15 @@
 </template>
 
 <script>
+import { useCreateStore } from "~/stores/create";
 export default {
+  setup() {
+    const store = useCreateStore();
+    const images = store.images;
+    return { images };
+  },
   data() {
     return {
-      images: [],
       title: "SwapU - The Swapping Marketplace",
       heading: "Create a Listing",
       description:

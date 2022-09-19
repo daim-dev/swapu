@@ -61,6 +61,7 @@
             class="inline-flex relative items-center cursor-pointer"
           >
             <input
+              v-model="store.swapSpecific"
               type="checkbox"
               name="swap-specific"
               id="swap-specific"
@@ -82,6 +83,7 @@
             >Categories</label
           >
           <select
+          v-model="store.postCategory2"
             placeholder="Select"
             name="category"
             id="item-category"
@@ -93,7 +95,7 @@
             <option
               v-for="category of categories"
               :key="category.value"
-              :value="category.value"
+              :value="category"
             >
               {{ category.optionName }}
             </option>
@@ -125,7 +127,12 @@
 </template>
 
 <script>
+import { useCreateStore } from "~/stores/create";
 export default {
+  setup() {
+    const store = useCreateStore();
+    return { store };
+  },
   data() {
     return {
       title: "SwapU - The Swapping Marketplace",

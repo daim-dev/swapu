@@ -19,7 +19,9 @@
       </span>
       <span class="flex">back</span>
     </nuxt-link>
-    <div class="flex flex-auto flex-wrap mx-auto flex-col bg-white p-8 rounded-2xl mt-6">
+    <div
+      class="flex flex-auto flex-wrap mx-auto flex-col bg-white p-8 rounded-2xl mt-6"
+    >
       <div class="text-center">
         <h1 class="text-2xl font-semibold">Add description</h1>
         <p class="font-semibold text-[#929090]">
@@ -35,6 +37,8 @@
               >Item name</label
             >
             <input
+              v-model="store.postTitle"
+              required
               type="text"
               class="form-control text-xl bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg py-3 px-4"
               id="item-name"
@@ -48,6 +52,7 @@
               >Categories</label
             >
             <select
+              v-model="store.postCategory"
               placeholder="Select"
               name="category"
               id="item-category"
@@ -57,11 +62,11 @@
                 Select
               </option>
               <option
-                v-for="category of categories"
-                :key="category.value"
-                :value="category.value"
+                v-for="option of categories"
+                :key="option.value"
+                :value="option.value"
               >
-                {{ category.optionName }}
+                {{ option.optionName }}
               </option>
             </select>
           </div>
@@ -74,6 +79,7 @@
             >Item description</label
           >
           <textarea
+            v-model="store.postDesc"
             type="text"
             class="form-control text-lg bg-[#F4F4F4] focus:bg-[#F4F4F4] font-semibold border-none rounded-lg"
             id="item-description"
@@ -88,6 +94,7 @@
           <div class="flex items-center justify-around">
             <div class="flex items-center mx-3 w-full">
               <input
+                v-model="store.condition"
                 required
                 id="condition-new"
                 type="radio"
@@ -103,6 +110,7 @@
             </div>
             <div class="flex items-center mx-3 w-full">
               <input
+                v-model="store.condition"
                 checked
                 required
                 id="condition-used-like-new"
@@ -119,6 +127,7 @@
             </div>
             <div class="flex items-center mx-3 w-full">
               <input
+                v-model="store.condition"
                 required
                 id="condition-used-fair"
                 type="radio"
@@ -134,6 +143,7 @@
             </div>
             <div class="flex items-center mx-3 w-full">
               <input
+                v-model="store.condition"
                 required
                 id="condition-used-good"
                 type="radio"
@@ -162,13 +172,18 @@
 </template>
 
 <script>
+import { useCreateStore } from "~/stores/create";
 export default {
+  setup() {
+    const store = useCreateStore();
+    return { store };
+  },
   data() {
     return {
       title: "SwapU - The Swapping Marketplace",
-        heading: "Create a Listing",
-        description:
-          "Visit Australia's FREE online swap meet! Find cars, boats, motorbikes, furniture, electronics & more for swap across Australia.",
+      heading: "Create a Listing",
+      description:
+        "Visit Australia's FREE online swap meet! Find cars, boats, motorbikes, furniture, electronics & more for swap across Australia.",
       categories: [
         {
           label: "category.4x4",
