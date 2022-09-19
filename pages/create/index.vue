@@ -28,8 +28,17 @@
       <div class="w-full flex justify-center items-center">
         <label
           class="text-center bg-[#F7F7F7] p-4 grow max-w-280px mx-7 rounded-lg"
-          :class="{'border border-primary': multiple === 'single'}"
+          :class="{ 'border border-primary': multiple === 'single' }"
         >
+          <div
+            class="w-20px h-20px border border-[#D2D2D2] rounded-full mb-4 flex items-center justify-center"
+            :class="{ 'bg-primary border-primary': multiple === 'single' }"
+          >
+            <div
+              class="i-bi-check text-white"
+              v-show="multiple === 'single'"
+            ></div>
+          </div>
           <input
             type="radio"
             name="multiple"
@@ -43,8 +52,17 @@
         </label>
         <label
           class="bg-[#F7F7F7] p-4 flex flex-col grow max-w-280px mx-7 rounded-lg"
-          :class="{'border border-primary': multiple === 'multiple'}"
+          :class="{ 'border border-primary': multiple === 'multiple' }"
         >
+          <div
+            class="w-20px h-20px border border-[#D2D2D2] rounded-full mb-4 flex items-center justify-center"
+            :class="{ 'bg-primary border-primary': multiple === 'multiple' }"
+          >
+            <div
+              class="i-bi-check text-white"
+              v-show="multiple === 'multiple'"
+            ></div>
+          </div>
           <input
             type="radio"
             name="multiple"
@@ -72,7 +90,7 @@
 export default {
   data() {
     return {
-      multiple: 'single',
+      multiple: "single",
       title: "SwapU - The Swapping Marketplace",
       heading: "Create a Listing",
       description:
