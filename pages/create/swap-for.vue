@@ -83,7 +83,7 @@
             >Categories</label
           >
           <select
-          v-model="store.postCategory2"
+            v-model="store.postCategory2"
             placeholder="Select"
             name="category"
             id="item-category"
@@ -116,11 +116,12 @@
         </div>
       </div>
       <div class="w-full flex flex-col justify-center items-center mt-14">
-        <nuxt-link
+        <button
           class="btn btn-primary rounded-lg font-semibold w-260px text-center py-4"
-          to="/"
-          >Continue</nuxt-link
+          @click="submit"
         >
+          Continue
+        </button>
       </div>
     </div>
   </div>
@@ -131,7 +132,29 @@ import { useCreateStore } from "~/stores/create";
 export default {
   setup() {
     const store = useCreateStore();
-    return { store };
+    const router = useRouter();
+    async function submit() {
+      const url =
+        "https://firestore.googleapis.com/v1/projects/swapu-staging/databases/(default)/documents/swapuv2_test";
+      const { data: items, error } = await useFetch(url, {
+        method: "POST",
+        body: {
+          fields: {
+            // images: {},
+            // cashValue: { stringValue: store.cashValue },
+            // openToSelling: { booleanValue: store.openToSelling },
+            // postDesc: { stringValue: store.postDesc },
+            postTitle: { stringValue: 'test' },
+            // postCategory: {},
+            // postCategory2: {},
+            // condition: { stringValue: store.condition },
+          },
+        },
+        // server: false,
+      });
+      // router.push("/");
+    }
+    return { store, submit };
   },
   data() {
     return {
