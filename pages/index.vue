@@ -7,64 +7,71 @@
       :content="description"
       itemprop="description"
     />
-    <h1 class="sr-only">I'll Swap you</h1>
     <section
-      class="relative overflow-hidden bg-no-repeat bg-cover"
+      class="relative overflow-hidden bg-no-repeat bg-cover rounded-lg"
       :style="`
     background-position: 50%;
     background-image: url('/banners/home.png');
-    height: 619px;
-  `"
+    height: 619px;`"
     >
-      <div
-        class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-      >
-        <slot>
-          <div class="flex justify-end items-center h-full">
-            <div class="max-w-361px mx-6">
-              <div class="p-6 md:p-12 bg-white rounded text-lg font-semibold">
-                <div>
-                  I have a
-                  <select
-                    placeholder="Select"
-                    class="form-control border-none mt-6 px-0"
-                  >
-                    <option value="" disabled selected hidden>Select</option>
-                  </select>
-                </div>
-                <div class="mt-11">
-                  and I want to swap it for a
-                  <select
-                    placeholder="Select"
-                    class="form-control border-none mt-6 px-0"
-                  >
-                    <option value="" disabled selected hidden>Select</option>
-                  </select>
-                </div>
-                <div class="mt-11">
-                  <button class="btn btn-primary rounded-lg w-full text-left">
-                    Find my swap
-                  </button>
-                </div>
+      <div class="flex w-full h-full pt-19 px-20 flex-wrap">
+        <div class="text-center">
+          <h1 class="text-5xl font-semibold text-[#0D284F] sr-only">
+            I'll Swap <span class="text-[#698AFF]">you</span>
+          </h1>
+          <p class="font-semibold pt-5 sr-only">
+            Swap what you have for what you want on SwapU
+          </p>
+        </div>
+        <!-- <img
+          src="/banners/home-man.png"
+          alt=""
+          class=""
+        /> -->
+        <div class="h-full ml-auto">
+          <div class="max-w-361px mx-6">
+            <div class="p-6 md:p-12 bg-white rounded text-lg font-semibold">
+              <div>
+                I have a
+                <select
+                  placeholder="Select"
+                  class="form-control border-none mt-6 px-0"
+                >
+                  <option value="" disabled selected hidden>Select</option>
+                </select>
               </div>
-              <div class="text-[#787878] mt-9">
-                Don't miss out on the latest swap listings. Add your email and
-                receive weekly updates.
-                <div class="rounded-lg bg-white flex p-2 mt-2">
-                  <input
-                    name="email"
-                    type="email"
-                    class="form-control border-none p-0"
-                    placeholder="Your email address"
-                  />
-                  <button class="btn btn-primary rounded whitespace-nowrap">
-                    Keep me updated
-                  </button>
-                </div>
+              <div class="mt-11">
+                and I want to swap it for a
+                <select
+                  placeholder="Select"
+                  class="form-control border-none mt-6 px-0"
+                >
+                  <option value="" disabled selected hidden>Select</option>
+                </select>
+              </div>
+              <div class="mt-11">
+                <button class="btn btn-primary rounded-lg w-full text-left">
+                  Find my swap
+                </button>
+              </div>
+            </div>
+            <div class="text-[#787878] mt-9">
+              Don't miss out on the latest swap listings. Add your email and
+              receive weekly updates.
+              <div class="rounded-lg bg-white flex p-2 mt-2">
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control border-none p-0"
+                  placeholder="Your email address"
+                />
+                <button class="btn btn-primary rounded whitespace-nowrap">
+                  Keep me updated
+                </button>
               </div>
             </div>
           </div>
-        </slot>
+        </div>
       </div>
     </section>
     <section class="py-15">
