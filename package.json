@@ -9,7 +9,7 @@
   "devDependencies": {
     "@iconify/json": "2.1.68",
     "@unocss/nuxt": "0.41.1",
-    "nuxt": "^3.0.0-rc.8"
+    "nuxt": "3.0.0-rc.11"
   },
   "dependencies": {
     "@pinia/nuxt": "0.4.1",
