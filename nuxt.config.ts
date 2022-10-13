@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from "nuxt/config";
 import invertColor from "./utils/invert-color";
 
 const APP_NAME = 'Swapu'
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
       },
     ],
   },
-  modules: ['@pinia/nuxt',],
+  modules: ['@pinia/nuxt', '@nuxt/content', 'nuxt-icon'],
   buildModules: ["@unocss/nuxt"],
   css: ["@unocss/reset/tailwind.css"],
   unocss: {
